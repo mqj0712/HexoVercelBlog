@@ -211,9 +211,9 @@
 
 <p>测试后发现在 Firefox中能工作正常, 不过在chrome 中发现js错误, 由<strong>u2f-api.js</strong> 代码引起, 报<code>extension: kmendfapggjehodndflmmgagdbamhnfd</code> 不存在, 这个扩展应该是chrome 内置的扩展, 调查后发现应该和chrome放弃U2F支持有关 <a target="_blank" rel="noopener" href="https://developer.chrome.com/blog/deps-rems-95/#deprecate-u2f-api-cryptotoken">Deprecate U2F API (Cryptotoken)</a>, sighhhh! 还是Firefox耿直,所以接下来势必要转战 FIDO2  </p>
 <h2 id="FIDO2-in-odoo-14"><a href="#FIDO2-in-odoo-14" class="headerlink" title="FIDO2 in odoo 14"></a>FIDO2 in odoo 14</h2><p>和U2F的认证方式很类似, 包含注册部分</p>
-<p><img src="/assets/images/2021/2/webauthn_reg.png" alt="webauthn_reg">  </p>
+<p><img src="/assets/images/2022/2/webauthn_reg.png" alt="webauthn_reg">  </p>
 <p>和认证部分</p>
-<p><img src="/assets/images/2021/2/webauthn_auth.png" alt="webauthn_auth">  </p>
+<p><img src="/assets/images/2022/2/webauthn_auth.png" alt="webauthn_auth">  </p>
 <p>改造步骤如下:</p>
 <ol>
 <li><p>替换对应的后端和前端U2F支持库到FIDO2的支持库, 这里选用的是 <a target="_blank" rel="noopener" href="https://github.com/duo-labs/py_webauthn">py_webauthn</a> (server) 以及 <a target="_blank" rel="noopener" href="https://github.com/MasterKale/SimpleWebAuthn">SimpleWebAuthn</a> (client) , 安装方式请参考对应项目文档.  </p>
