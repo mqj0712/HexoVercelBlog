@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<!-- title -->
+	
+<title>
+    
+        2022/02/15 odoo integration webauthn&nbsp;&nbsp;✦&nbsp;
+    
+    Hexo
+</title>
+
+	<!-- keywords,description -->
+	
+
+<meta name="author" content="Martin Zhang" />
+
+<meta name="keywords" content="" />
+
+<meta name="description" content="背景最近由于业务需要, 要求在odoo中支持FIDO2的认证方式, 即在用户账户绑定FIDO2兼容的Authenticator(通常为USB key), 需要用户在正常的帐号密码登录之后, 使用USB key做二次身份确认. 
+调查研究当前项目使用的odoo版本是14.0 community 版本, 而OCA 的14.0 版本的server-auth 项目并不包含FIDO2 或者U2F的认证支持," />
+
+	<!-- favicon -->
+	
+		<link rel="shortcut icon" href="/favicon.ico">
+	
+
+	<!-- css, script -->
+	
+<link rel="stylesheet" href="https://unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css">
+
+	
+<link rel="stylesheet" href="/css/main.css">
+
+
+	
+<script src="https://cdn.jsdelivr.net/npm/darkreader@4.9.58/darkreader.min.js"></script>
+
+	
+<script src="/js/main.js"></script>
+
+
+	<!-- custom css and js -->
+	
+
+
+
+
+
+	<!-- search -->
+	<script async>
+	window.searchEngine = "https://www.google.com/search?q=" ?? "https://www.google.com/search?q=";
+	window.homeHost = "http://example.com" ?? window.location.host;
+</script>
+
+	<!-- statistics -->
+	
+	<script async reload src="https://cn.vercount.one/js"></script>
+
+
+	<!-- analysis -->
+	
+
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+	<header id="header">
+	<a id="title" href="/" class="logo">
+		<img id="logo" src="/favicon-white.ico" alt="logo"/>
+		Hexo
+	</a>
+
+	<ul id="menu">
+		
+			<li class="menu-item">
+				<a href="/about" class="menu-item-link">About</a>
+			</li>
+		
+		
+			<li class="menu-item">
+				<a href="/tags" class="menu-item-link">Tags</a>
+			</li>
+		
+		
+			<li class="menu-item">
+				<a href="/categories" class="menu-item-link">Categories</a>
+			</li>
+		
+		
+			<li class="menu-item">
+				<a href="" class="menu-item-link item-icon" target="_blank">
+					<i class="fa fa-github fa-2x"></i>
+				</a>
+			</li>
+		
+		
+			<li class="menu-item dark-mode">
+				<a href="#" class="menu-item-link item-icon">
+					<i class="fa fa-moon-o fa-2x"></i>
+				</a>
+			</li>
+
+			<script async>
+				const localModel = localStorage.getItem("darkModel");
+				const darkModel = !localModel ? 0 : localModel;
+
+				const darkModeIcon = document.querySelector("#menu .dark-mode i");
+
+				if (darkModel == 1) {
+					darkModeIcon.classList.replace("fa-moon-o", "fa-sun-o");
+					DarkReader.enable({
+						brightness: 100,
+						contrast: 90,
+						sepia: 10,
+					});
+				}
+
+				darkModeIcon.addEventListener("click", () => {
+					const isMoon = darkModeIcon.classList.contains("fa-moon-o");
+					darkModeIcon.classList.toggle("fa-moon-o", !isMoon);
+					darkModeIcon.classList.toggle("fa-sun-o", isMoon);
+					localStorage.setItem("darkModel", isMoon ? 1 : 0);
+					isMoon ? DarkReader.enable({ brightness: 100, contrast: 90, sepia: 10 }) : DarkReader.disable();
+				});
+			</script>
+		
+	</ul>
+</header>
+
+<script async>
+	let startHeight = 0;
+	window.addEventListener("scroll", () => {
+		const { scrollY: endHeight } = window;
+		const distance = endHeight - startHeight;
+		startHeight = endHeight;
+		document.querySelector("#header").style.display = distance > 0 && endHeight > 50 ? "none" : "";
+	});
+</script>
+	<div id="sidebar">
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<div id="site-toc">
+		<input id="search-input" class="search-input" type="search" placeholder="Press Enter to search the entire site">
+		<div id="tree">
+			
+			
+							<ul>
+								<li class="file active">
+									<a href="/2025/06/06/2022-02-15-odoo-integration-webauthn/" title="/2025/06/06/2022-02-15-odoo-integration-webauthn">
+									
+										2022-02-15-odoo-integration-webauthn
+									
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+		</div>
+	</div>
+</div>
+
+	<div id="content">
+		<h1 id="article-title">
+	2022/02/15 odoo integration webauthn
+</h1>
+
+<div class="article-meta">
+	<span> Martin Zhang </span>
+	<span> 2025-06-06 16:19:42 </span>
+	<div id="article-categories">
+		
+			<span>Categories：</span>
+			
+		
+		
+			<span>Tags：</span>
+			
+		
+	</div>
+</div>
+
+<div id="article-content">
+	<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近由于业务需要, 要求在odoo中支持FIDO2的认证方式, 即在用户账户绑定FIDO2兼容的<strong>Authenticator</strong>(通常为USB key), 需要用户在正常的帐号密码登录之后, 使用USB key做二次身份确认. </p>
+<h1 id="调查研究"><a href="#调查研究" class="headerlink" title="调查研究"></a>调查研究</h1><p>当前项目使用的odoo版本是<a target="_blank" rel="noopener" href="https://nightly.odoo.com/14.0/nightly/">14.0 community 版本</a>, 而OCA 的<a target="_blank" rel="noopener" href="https://github.com/OCA/server-auth/tree/14.0">14.0 版本的server-auth 项目</a>并不包含FIDO2 或者U2F的认证支持, 不过在 <a target="_blank" rel="noopener" href="https://github.com/OCA/server-auth/tree/12.0">12.0 版本</a> 中发现有 <a target="_blank" rel="noopener" href="https://github.com/OCA/server-auth/tree/12.0/auth_u2f">auth_u2f 插件</a> 实现, 所以决定从改造 12.0 版本的<code>auth_u2f</code> 开始, 最终目标是<strong>FIDO2</strong> 与 <strong>odoo14</strong> 的集成</p>
+<h1 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h1><p>整体的改造过程如下:</p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>由于FIDO2认证需要网站工作在<strong>TLS&#x2F;HTTPS</strong> 下, 所以本地测试需要准备:</p>
+<ol>
+<li><p>通过openssl生成网站需要的证书和私钥:<code>certificate.pem</code> 以及 <code>key.pem</code>, 方法请<em>自行<del>百</del>(goo)<del>度</del>(gle)</em> , 在nginx配置中会用到  </p>
+</li>
+<li><p>搭建一个nginx反向代理, 关键的配置如下, 其中的 <code>proxy_set_header X-Forwarded-HTTPS on</code> 是解决odoo redirect 操作导致浏览器使用回HTTP请求的问题</p>
+ <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    <span class="attribute">listen</span> <span class="number">443</span> ssl;</span><br><span class="line">    <span class="attribute">proxy_set_header</span> X-Forwarded-Proto <span class="variable">$scheme</span>;</span><br><span class="line">    <span class="attribute">ssl_certificate</span> /usr/local/nginx/cert/certificate.pem; <span class="comment">#cert</span></span><br><span class="line">    <span class="attribute">ssl_certificate_key</span> /usr/local/nginx/cert/key.pem; <span class="comment">#key</span></span><br><span class="line">    <span class="attribute">ssl_session_timeout</span>  <span class="number">5m</span>;    <span class="comment">#time out</span></span><br><span class="line">    <span class="attribute">ssl_ciphers</span> ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;    <span class="comment">#supported algorithm</span></span><br><span class="line">    <span class="attribute">ssl_protocols</span> TLSv1 TLSv1.<span class="number">1</span> TLSv1.<span class="number">2</span>;    <span class="comment">#supported tls version</span></span><br><span class="line">    <span class="attribute">ssl_prefer_server_ciphers</span> <span class="literal">on</span>;   <span class="comment">#use server prefered</span></span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">        <span class="section">location</span> / &#123;</span><br><span class="line">        <span class="attribute">proxy_pass</span> http://localhost:8069;</span><br><span class="line">        <span class="attribute">proxy_set_header</span> X-Forwarded-HTTPS <span class="literal">on</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+<li><p>在odoo的系统参数中配置<code>web.base.url</code> 以及 <code>web.base.url.freeze</code></p>
+<p> web.base.url -&gt; <a target="_blank" rel="noopener" href="https://localhost/">https://localhost</a><br> web.base.url.freeze -&gt; True</p>
+</li>
+</ol>
+<p>完成之后可以测试新的https . 接下来就可以开始改造认证部分</p>
+<h2 id="auth-u2f-odoo14"><a href="#auth-u2f-odoo14" class="headerlink" title="auth_u2f -&gt; odoo14"></a>auth_u2f -&gt; odoo14</h2><p>这部分工作主要集中在 auth_u2f 到odoo 14  </p>
+<ol>
+<li>下载auth_u2f插件到本地的插件目录  </li>
+<li>按照插件的说明安装依赖包 <code>pip install python-u2flib-server</code>  </li>
+<li>去掉方法上不支持的装饰器 <code>@api.multi</code>  </li>
+<li>按照标准插件安装方式安装插件</li>
+</ol>
+<p>不出其他意外的话, auth_u2f 应该可以在系统中运行起来, 唯一遇到的一个问题是, 给当前用户新绑定usb key的时候, 会导致当前session出现登录失败的情况, 可能导致设备绑定出现问题, 修改方式也很简单, 修改<code>controller</code> ,如果发现用户已经登录, 不强制验证密钥</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@http.route(<span class="params"><span class="string">&#x27;/web/u2f/login&#x27;</span>, <span class="built_in">type</span>=<span class="string">&#x27;http&#x27;</span>, auth=<span class="string">&#x27;none&#x27;</span>, sitemap=<span class="literal">False</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">u2f_login</span>(<span class="params">self, u2f_token_response=<span class="literal">None</span>, redirect=<span class="literal">None</span>, **kw</span>):</span><br><span class="line">    user = request.env[<span class="string">&#x27;res.users&#x27;</span>].browse(request.session.uid)</span><br><span class="line">    <span class="keyword">if</span> user:</span><br><span class="line">        <span class="keyword">return</span> http.redirect_with_hash(<span class="variable language_">self</span>._login_redirect(</span><br><span class="line">            user.<span class="built_in">id</span>, redirect=redirect))   </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>测试后发现在 Firefox中能工作正常, 不过在chrome 中发现js错误, 由<strong>u2f-api.js</strong> 代码引起, 报<code>extension: kmendfapggjehodndflmmgagdbamhnfd</code> 不存在, 这个扩展应该是chrome 内置的扩展, 调查后发现应该和chrome放弃U2F支持有关 <a target="_blank" rel="noopener" href="https://developer.chrome.com/blog/deps-rems-95/#deprecate-u2f-api-cryptotoken">Deprecate U2F API (Cryptotoken)</a>, sighhhh! 还是Firefox耿直,所以接下来势必要转战 FIDO2  </p>
+<h2 id="FIDO2-in-odoo-14"><a href="#FIDO2-in-odoo-14" class="headerlink" title="FIDO2 in odoo 14"></a>FIDO2 in odoo 14</h2><p>和U2F的认证方式很类似, 包含注册部分</p>
+<p><img src="/assets/images/2021/2/webauthn_reg.png" alt="webauthn_reg">  </p>
+<p>和认证部分</p>
+<p><img src="/assets/images/2021/2/webauthn_auth.png" alt="webauthn_auth">  </p>
+<p>改造步骤如下:</p>
+<ol>
+<li><p>替换对应的后端和前端U2F支持库到FIDO2的支持库, 这里选用的是 <a target="_blank" rel="noopener" href="https://github.com/duo-labs/py_webauthn">py_webauthn</a> (server) 以及 <a target="_blank" rel="noopener" href="https://github.com/MasterKale/SimpleWebAuthn">SimpleWebAuthn</a> (client) , 安装方式请参考对应项目文档.  </p>
+</li>
+<li><p>后端  </p>
+<ol>
+<li>device的模型中增加 <code>credential</code> (可选), <code>credential_id</code> , 以及 <code>credential_pub_key</code> 字段</li>
+<li>在设备注册response verify通过后, 从对应的verify_registration_response 中解析出<code>credential_id</code> 和 <code>credential_pub_key</code> 并保存到对应的device record中</li>
+<li>在登录时从device record中拿到creddential_id, 作为 allow_credentials 放到AuthenticationOption中</li>
+<li>验证时从device记录中拿<code>credential_pub_key</code>做验证</li>
+</ol>
+</li>
+<li><p>前端的改动就比较简单, 替换auth_u2f.js 和auth_uf_frontend.js中对应的u2f-api的register 和 sign 方法为SimpleWebAuthn的startRegistration 和 startAuthentication即可</p>
+</li>
+</ol>
+<p>至此chrome 和 firefox都可以支持</p>
+<h1 id="相关网站连接"><a href="#相关网站连接" class="headerlink" title="相关网站连接"></a>相关网站连接</h1><p>Some useful links</p>
+<ul>
+<li><strong>awesome-webauthn</strong>: <a target="_blank" rel="noopener" href="https://github.com/herrjemand/awesome-webauthn">https://github.com/herrjemand/awesome-webauthn</a> , 包含了很多关于WebAuthn的资源连接</li>
+<li><strong>py_webauthn</strong>: <a target="_blank" rel="noopener" href="https://github.com/duo-labs/py_webauthn">https://github.com/duo-labs/py_webauthn</a> 本文最终使用的 <strong>webauthn server</strong> 库</li>
+<li><strong>SimpleWebAuthn</strong>: <a target="_blank" rel="noopener" href="https://github.com/MasterKale/SimpleWebAuthn">https://github.com/MasterKale/SimpleWebAuthn</a> 本文最终使用的 <strong>webauthn client</strong> 库</li>
+<li><strong>Auth0</strong>: <a target="_blank" rel="noopener" href="https://webauthn.me/">https://webauthn.me/</a> Demo网站, 可以直观了解FIDO2的认证流程</li>
+<li><strong>谈谈WebAuthn</strong>: <a target="_blank" rel="noopener" href="https://flyhigher.top/develop/2160.html">https://flyhigher.top/develop/2160.html</a></li>
+</ul>
+
+	
+    <div class="copyright-box">
+		<div class="license-box">
+			<div class="license-header">
+				
+				<div class="license-title">
+					2022/02/15 odoo integration webauthn
+				</div>
+				<div class="license-subTitle">http://example.com/2025/06/06/2022-02-15-odoo-integration-webauthn/index.html</div>
+			</div>
+			<div class="license-meta">
+				
+					<div class="license-meta-item">
+						<div>Author</div>
+						<div>
+							<a href="">
+								Martin Zhang
+							</a>
+						</div>
+					</div>
+				
+				
+					<div class="license-meta-item license-meta-date">
+					<div>Posted on</div>
+					<div>June 6, 2025</div>
+					</div>
+				
+				
+				
+				
+					<div class="license-meta-item">
+					<div>Licensed under</div>
+					<div>
+						
+						
+						
+							<a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+								<span class="hint--top hint--rounded" aria-label="BY - Attribution">
+									BY - Attribution
+								</span>
+							</a>
+						
+						
+					</div>
+					</div>
+				
+			</div>
+		</div>
+	</div>
+
+</div>
+
+
+    
+
+    
+
+    
+        
+        <script async reload>
+            fetch("https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/tokyo-night-dark.css")
+                .then((response) => response.text())
+                .then((cssContent) => {
+                    const style = document.createElement("style");
+                    
+                        cssContent = cssContent
+                            .replace(".hljs-code,", "")
+                            .replaceAll("_", " ")
+                            .replaceAll("hljs-", "hljs .")
+                            .replaceAll(".hljs", " .highlight")
+                            .replaceAll(".built in", ".built_in")
+                            .replaceAll("title.", "");
+                        const figures = document.querySelectorAll("figure.highlight td.gutter");
+                        figures.forEach(figure=>{
+                            figure.classList.add("highlight");
+                        })
+                    
+                    style.innerHTML = cssContent;
+                    document.head.appendChild(style);
+                })
+                .catch((error) => {
+                    console.error("Error loading CSS:", error);
+                });
+        </script>
+    
+
+
+
+
+
+    <script reload>
+        var targets = document.querySelectorAll("figure.highlight, #article-content > pre:not(.highlight,.hljs)");
+        targets.forEach((block) => {
+            const copyBtn = document.createElement("button");
+            copyBtn.innerHTML = `<i class="fa fa-clone" aria-hidden="true"></i>`;
+            copyBtn.className = "code-copy";
+
+            
+                copyBtn.style.color = "#fff";
+            
+
+            copyBtn.addEventListener("click", () => {
+                const text = block.querySelector("td.code")?.textContent || block.querySelector("code")?.textContent;
+                navigator.clipboard.writeText(text).then(() => {
+                    copyBtn.innerHTML = "Copied!";
+                    setTimeout(() => {
+                        copyBtn.innerHTML = `<i class="fa fa-clone" aria-hidden="true"></i>`;
+                    }, 2000);
+                });
+            });
+            block.appendChild(copyBtn);
+        });
+    </script>
+
+
+
+
+<div class="post-guide">
+	<div class="item left">
+	
+	</div>
+	<div class="item right">
+		
+	</div>
+</div>
+
+
+
+
+	</div>
+
+	<div id="footer">
+	<div>
+		
+			
+				©2024<span>-</span><span>2025
+			
+			
+			</span>
+			<a href="">
+				Martin Zhang
+			</a>
+		
+		
+			<span id="busuanzi_container_site_pv">
+				Views
+				<span id="vercount_value_page_pv"></span>
+			</span>
+			<span id="busuanzi_container_site_uv">
+				Visitors
+				<span id="vercount_value_site_pv"></span>
+			</span>
+		
+	</div>
+	 <div> Theme <a href="https://github.com/Exisi/hexo-theme-node-tree"	target="_blank">Node-Tree</a> Powered by <a href="https://hexo.io" target="_blank">Hexo</a> </div> 
+</div>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+
+<script async>
+    const topTopBtn = document.querySelector("#totop-toggle");
+	topTopBtn.addEventListener("click", () => {
+		window.scrollTo({ top: 0, behavior: "smooth" });
+	});
+</script>
+</body>
+</html>
