@@ -8,7 +8,7 @@
 	
 <title>
     
-        about&nbsp;&nbsp;✦&nbsp;
+        tags&nbsp;&nbsp;✦&nbsp;
     
     Hexo
 </title>
@@ -20,14 +20,7 @@
 
 <meta name="keywords" content="" />
 
-<meta name="description" content="个人简介我是Martin, 老年程序员
-技能
-软件开发
-设计
-写作
-
-联系方式Email: mqj0712@gmail.com
-" />
+<meta name="description" content="" />
 
 	<!-- favicon -->
 	
@@ -181,97 +174,49 @@
 
 	<div id="content">
 		<h1 id="article-title">
-	about
+	<i class="fa fa-tags" aria-hidden="true"></i>Tags
 </h1>
-
-<div class="article-meta">
-	<span> Martin Zhang </span>
-	<span> 2025-06-06 14:58:23 </span>
-	<div id="article-categories">
-		
-		
-	</div>
-</div>
+<h2 id="article-title">
+	Current 4 tags in total
+</h2>
 
 <div id="article-content">
-	<h2 id="个人简介"><a href="#个人简介" class="headerlink" title="个人简介"></a>个人简介</h2><p>我是Martin, 老年程序员</p>
-<h2 id="技能"><a href="#技能" class="headerlink" title="技能"></a>技能</h2><ul>
-<li>软件开发</li>
-<li>设计</li>
-<li>写作</li>
-</ul>
-<h2 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a>联系方式</h2><p>Email: <a href="mailto:&#109;&#x71;&#x6a;&#x30;&#x37;&#x31;&#x32;&#x40;&#x67;&#x6d;&#97;&#x69;&#108;&#46;&#x63;&#x6f;&#x6d;">mqj0712@gmail.com</a></p>
-
-	
+	<ul>
+      
+          
+            <li class="menu-item">
+                <span>
+                      <a href="/tags/odoo/">odoo(1)</a>
+                </span>
+            </li>
+          
+      
+          
+            <li class="menu-item">
+                <span>
+                      <a href="/tags/webauthn/">webauthn(1)</a>
+                </span>
+            </li>
+          
+      
+          
+            <li class="menu-item">
+                <span>
+                      <a href="/tags/podman/">podman(1)</a>
+                </span>
+            </li>
+          
+      
+          
+            <li class="menu-item">
+                <span>
+                      <a href="/tags/docker/">docker(1)</a>
+                </span>
+            </li>
+          
+      
+	</ul>
 </div>
-
-
-    
-
-    
-
-    
-        
-        <script async reload>
-            fetch("https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/tokyo-night-dark.css")
-                .then((response) => response.text())
-                .then((cssContent) => {
-                    const style = document.createElement("style");
-                    
-                        cssContent = cssContent
-                            .replace(".hljs-code,", "")
-                            .replaceAll("_", " ")
-                            .replaceAll("hljs-", "hljs .")
-                            .replaceAll(".hljs", " .highlight")
-                            .replaceAll(".built in", ".built_in")
-                            .replaceAll("title.", "");
-                        const figures = document.querySelectorAll("figure.highlight td.gutter");
-                        figures.forEach(figure=>{
-                            figure.classList.add("highlight");
-                        })
-                    
-                    style.innerHTML = cssContent;
-                    document.head.appendChild(style);
-                })
-                .catch((error) => {
-                    console.error("Error loading CSS:", error);
-                });
-        </script>
-    
-
-
-
-
-
-    <script reload>
-        var targets = document.querySelectorAll("figure.highlight, #article-content > pre:not(.highlight,.hljs)");
-        targets.forEach((block) => {
-            const copyBtn = document.createElement("button");
-            copyBtn.innerHTML = `<i class="fa fa-clone" aria-hidden="true"></i>`;
-            copyBtn.className = "code-copy";
-
-            
-                copyBtn.style.color = "#fff";
-            
-
-            copyBtn.addEventListener("click", () => {
-                const text = block.querySelector("td.code")?.textContent || block.querySelector("code")?.textContent;
-                navigator.clipboard.writeText(text).then(() => {
-                    copyBtn.innerHTML = "Copied!";
-                    setTimeout(() => {
-                        copyBtn.innerHTML = `<i class="fa fa-clone" aria-hidden="true"></i>`;
-                    }, 2000);
-                });
-            });
-            block.appendChild(copyBtn);
-        });
-    </script>
-
-
-
-
-
-
 	</div>
 
 	<div id="footer">

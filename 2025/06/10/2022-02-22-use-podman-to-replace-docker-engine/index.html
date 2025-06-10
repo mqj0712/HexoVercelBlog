@@ -8,7 +8,7 @@
 	
 <title>
     
-        about&nbsp;&nbsp;✦&nbsp;
+        2022/02/22 use podman to replace docker engine&nbsp;&nbsp;✦&nbsp;
     
     Hexo
 </title>
@@ -18,16 +18,9 @@
 
 <meta name="author" content="Martin Zhang" />
 
-<meta name="keywords" content="" />
+<meta name="keywords" content="podman,docker" />
 
-<meta name="description" content="个人简介我是Martin, 老年程序员
-技能
-软件开发
-设计
-写作
-
-联系方式Email: mqj0712@gmail.com
-" />
+<meta name="description" content="背景使用docker需要基于root账户运行历来都是个痛点, 无论是命令行的麻烦(虽然可以用alias 来消除sudo 的使用), 还是数据的owner方面, 包括导出的tar, 以及挂载的本地文件, 都会出现只有root能访问的问题, 然而最近看到一篇文章 Docker 大势已去，Podman 即将崛起, 可能是解决这个问题的方案, 然而一直没有动力, 直到最近升级了docker engine," />
 
 	<!-- favicon -->
 	
@@ -165,7 +158,7 @@
 							</ul>
 			
 							<ul>
-								<li class="file">
+								<li class="file active">
 									<a href="/2025/06/10/2022-02-22-use-podman-to-replace-docker-engine/" title="/2025/06/10/2022-02-22-use-podman-to-replace-docker-engine">
 									
 										2022-02-22-use-podman-to-replace-docker-engine
@@ -181,28 +174,131 @@
 
 	<div id="content">
 		<h1 id="article-title">
-	about
+	2022/02/22 use podman to replace docker engine
 </h1>
 
 <div class="article-meta">
 	<span> Martin Zhang </span>
-	<span> 2025-06-06 14:58:23 </span>
+	<span> 2025-06-10 14:30:36 </span>
 	<div id="article-categories">
 		
+			<span>Categories：</span>
+			
+		
+		
+			<span>Tags：</span>
+			
+				
+					<span>
+						<i class="fa fa-tag" aria-hidden="true">
+							<a href="/tags/podman/">
+								podman
+							</a>
+						</i>
+					</span>
+				
+			
+				
+					<span>
+						<i class="fa fa-tag" aria-hidden="true">
+							<a href="/tags/docker/">
+								docker
+							</a>
+						</i>
+					</span>
+				
+			
 		
 	</div>
 </div>
 
 <div id="article-content">
-	<h2 id="个人简介"><a href="#个人简介" class="headerlink" title="个人简介"></a>个人简介</h2><p>我是Martin, 老年程序员</p>
-<h2 id="技能"><a href="#技能" class="headerlink" title="技能"></a>技能</h2><ul>
-<li>软件开发</li>
-<li>设计</li>
-<li>写作</li>
+	<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>使用docker需要基于root账户运行历来都是个痛点, 无论是命令行的麻烦(<em>虽然可以用alias</em> 来消除sudo 的使用), 还是数据的owner方面, 包括导出的tar, 以及挂载的本地文件, 都会出现只有root能访问的问题, 然而最近看到一篇文章 <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_48289488/article/details/121905018">Docker 大势已去，Podman 即将崛起</a>, 可能是解决这个问题的方案, 然而一直没有动力, 直到最近升级了docker engine, 导致本机一致无法运行 mysql 5.6 镜像的container, 就干脆卸载了docker 和 docker-compose, 转投podman 和 podman-compose.</p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p><img src="/assets/images/2021/2/podman.svg" alt="podman"><br><a target="_blank" rel="noopener" href="https://podman.io/">Podman官网: https://podman.io</a></p>
+<p>官方提供了各种平台的<a target="_blank" rel="noopener" href="https://podman.io/getting-started/installation">安装方式</a>, 例如 Arch Linux:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S podman podman-compose podman-dnsname</span><br></pre></td></tr></table></figure>
+<p>其中<code>podman</code>是主程序, 后面的 <code>podman-compose</code> 和<code>podman-dnsname</code> 是替换<em>docker-compose</em> 用的 </p>
+<h1 id="配置以及支持包"><a href="#配置以及支持包" class="headerlink" title="配置以及支持包"></a>配置以及支持包</h1><p>重点是在账户下运行podman, 因此两个额外的支持包需要安装:<code>slirp4netns</code>, <code>fuse-overlayfs</code> , 分别是支持用户空间的网络和文件系统.</p>
+<p>另一个必须的包是 <code>shadow-utils</code>, 在Arch Linux中是 <code>shadow</code>, 安装完成后, 修改文件 (如果没有可以用root用户创建)</p>
+<ul>
+<li><p>&#x2F;etc&#x2F;subuid</p>
+<pre><code>  &lt;username&gt;:10000:65536
+</code></pre>
+</li>
+<li><p>&#x2F;etc&#x2F;subgid</p>
+<pre><code>  &lt;username&gt;:10000:65536
+</code></pre>
+</li>
 </ul>
-<h2 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a>联系方式</h2><p>Email: <a href="mailto:&#109;&#x71;&#x6a;&#x30;&#x37;&#x31;&#x32;&#x40;&#x67;&#x6d;&#97;&#x69;&#108;&#46;&#x63;&#x6f;&#x6d;">mqj0712@gmail.com</a></p>
+<p>然后使用命令让podman应用上面的修改</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">podman system migrate</span><br></pre></td></tr></table></figure>
 
+<p>默认情况下用户空间的podman不能绑定本机小于1024的端口号, 如果有特殊需要, 例如443, 则可以修改kernel的参数, 对Arch linux, 创建文件 <code>/etc/sysctl.d/podman.conf</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net.ipv4.ip_unprivileged_port_start=443</span><br></pre></td></tr></table></figure>
+
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><ul>
+<li>支持docker hub repo, 在 <code>/etc/containers/registries.d/somefile.conf</code> 或者 <code>$HOME/.config/containers/registries.conf</code>中增加配置:</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unqualified-search-registries = [&quot;docker.io&quot;]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>使用docker-compose.yml 无法解析service 名称</p>
+<p>  这个通过安装podman-dnsname解决</p>
+</li>
+<li><p>如果本机配置了代理, proxy相关的环境变量(http_proxy, https_proxy…)会默认增加到container里面, 如果这不是你想要的, 可以通过修改 <code>/etc/containers/</code> 或 <code> $HOME/.config/containers/</code> 中的containers.conf , 就可以解决这个</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http_proxy = false</span><br></pre></td></tr></table></figure>
 	
+    <div class="copyright-box">
+		<div class="license-box">
+			<div class="license-header">
+				
+				<div class="license-title">
+					2022/02/22 use podman to replace docker engine
+				</div>
+				<div class="license-subTitle">https://blog.mzad.dpdns.org/2025/06/10/2022-02-22-use-podman-to-replace-docker-engine/index.html</div>
+			</div>
+			<div class="license-meta">
+				
+					<div class="license-meta-item">
+						<div>Author</div>
+						<div>
+							<a href="">
+								Martin Zhang
+							</a>
+						</div>
+					</div>
+				
+				
+					<div class="license-meta-item license-meta-date">
+					<div>Posted on</div>
+					<div>June 10, 2025</div>
+					</div>
+				
+				
+				
+				
+					<div class="license-meta-item">
+					<div>Licensed under</div>
+					<div>
+						
+						
+						
+							<a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+								<span class="hint--top hint--rounded" aria-label="BY - Attribution">
+									BY - Attribution
+								</span>
+							</a>
+						
+						
+					</div>
+					</div>
+				
+			</div>
+		</div>
+	</div>
+
 </div>
 
 
@@ -268,6 +364,21 @@
     </script>
 
 
+
+
+<div class="post-guide">
+	<div class="item left">
+	
+		<a href="/2025/06/06/2022-02-15-odoo-integration-webauthn/">
+			<i class="fa fa-angle-left" aria-hidden="true"></i>
+			2022/02/15 odoo integration webauthn
+		</a>
+	
+	</div>
+	<div class="item right">
+		
+	</div>
+</div>
 
 
 
