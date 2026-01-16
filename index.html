@@ -1,336 +1,645 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8">
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<!-- title -->
-	
-<title>
-    
-    Hexo
-</title>
+  <meta charset="utf-8">
+  
+  
 
-	<!-- keywords,description -->
-	
+  
+  
+  
+  
+  
+  
+  <title>Martin ACD</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Martin ACD">
+<meta property="og:url" content="https://blog.mzad.dpdns.org/index.html">
+<meta property="og:site_name" content="Martin ACD">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="Martin Zhang">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
 
-<meta name="author" content="Martin Zhang" />
+  
 
-<meta name="keywords" content="" />
-
-<meta name="description" content="" />
-
-	<!-- favicon -->
-	
-		<link rel="shortcut icon" href="/favicon.ico">
-	
-
-	<!-- css, script -->
-	
-<link rel="stylesheet" href="https://unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css">
-
-	
-<link rel="stylesheet" href="/css/main.css">
-
-
-	
-<script src="https://cdn.jsdelivr.net/npm/darkreader@4.9.58/darkreader.min.js"></script>
-
-	
-<script src="/js/main.js"></script>
-
-
-	<!-- custom css and js -->
-	
-
-
-
-
-
-	<!-- search -->
-	<script async>
-	window.searchEngine = "https://www.google.com/search?q=" ?? "https://www.google.com/search?q=";
-	window.homeHost = "https://blog.mzad.dpdns.org" ?? window.location.host;
-</script>
-
-	<!-- statistics -->
-	
-	<script async reload src="https://cn.vercount.one/js"></script>
-
-
-	<!-- analysis -->
-	
-
-
+  
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
 <meta name="generator" content="Hexo 7.3.0"></head>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="Martin ACD" rel="home">Martin ACD</a>
+      </h1>
+      
+        <h2 class="site-description hitokoto"></h2>
+        <script type="text/javascript" src="https://v1.hitokoto.cn/?encode=js"></script>
+      
+    </hgroup>
 
-<body>
-	<header id="header">
-	<a id="title" href="/" class="logo">
-		<img id="logo" src="/favicon-white.ico" alt="logo"/>
-		Hexo
-	</a>
-
-	<ul id="menu">
-		
-			<li class="menu-item">
-				<a href="/about" class="menu-item-link">About</a>
-			</li>
-		
-		
-			<li class="menu-item">
-				<a href="/tags" class="menu-item-link">Tags</a>
-			</li>
-		
-		
-			<li class="menu-item">
-				<a href="/categories" class="menu-item-link">Categories</a>
-			</li>
-		
-		
-			<li class="menu-item">
-				<a href="" class="menu-item-link item-icon" target="_blank">
-					<i class="fa fa-github fa-2x"></i>
-				</a>
-			</li>
-		
-		
-			<li class="menu-item dark-mode">
-				<a href="#" class="menu-item-link item-icon">
-					<i class="fa fa-moon-o fa-2x"></i>
-				</a>
-			</li>
-
-			<script async>
-				const localModel = localStorage.getItem("darkModel");
-				const darkModel = !localModel ? 0 : localModel;
-
-				const darkModeIcon = document.querySelector("#menu .dark-mode i");
-
-				if (darkModel == 1) {
-					darkModeIcon.classList.replace("fa-moon-o", "fa-sun-o");
-					DarkReader.enable({
-						brightness: 100,
-						contrast: 90,
-						sepia: 10,
-					});
-				}
-
-				darkModeIcon.addEventListener("click", () => {
-					const isMoon = darkModeIcon.classList.contains("fa-moon-o");
-					darkModeIcon.classList.toggle("fa-moon-o", !isMoon);
-					darkModeIcon.classList.toggle("fa-sun-o", isMoon);
-					localStorage.setItem("darkModel", isMoon ? 1 : 0);
-					isMoon ? DarkReader.enable({ brightness: 100, contrast: 90, sepia: 10 }) : DarkReader.disable();
-				});
-			</script>
-		
-	</ul>
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+                
+                </ul>
+            </div>
+    </nav>
 </header>
 
-<script async>
-	let startHeight = 0;
-	window.addEventListener("scroll", () => {
-		const { scrollY: endHeight } = window;
-		const distance = endHeight - startHeight;
-		startHeight = endHeight;
-		document.querySelector("#header").style.display = distance > 0 && endHeight > 50 ? "none" : "";
-	});
-</script>
-	<div id="sidebar">
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
-	<div id="site-toc">
-		<input id="search-input" class="search-input" type="search" placeholder="Press Enter to search the entire site">
-		<div id="tree">
-			
-			
-							<ul>
-								<li class="file">
-									<a href="/2025/06/06/2022-02-15-odoo-integration-webauthn/" title="/2025/06/06/2022-02-15-odoo-integration-webauthn">
-									
-										2022-02-15-odoo-integration-webauthn
-									
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2025/06/10/2022-02-22-use-podman-to-replace-docker-engine/" title="/2025/06/10/2022-02-22-use-podman-to-replace-docker-engine">
-									
-										2022-02-22-use-podman-to-replace-docker-engine
-									
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2026/01/10/2026-01-08-Tailwind-layoff-75-percent/" title="/2026/01/10/2026-01-08-Tailwind-layoff-75-percent">
-									
-										2026-01-08-Tailwind-layoff-75-percent
-									
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2026/01/11/2026-01-10-Tailwind-crisis-followup/" title="/2026/01/11/2026-01-10-Tailwind-crisis-followup">
-									
-										2026-01-10-Tailwind-crisis-followup
-									
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2026/01/14/2026-01-14-github-daily-stock-analysis-intro/" title="/2026/01/14/2026-01-14-github-daily-stock-analysis-intro">
-									
-										2026-01-14-github-daily-stock-analysis-intro
-									
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-		</div>
-	</div>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main">
+  
+    <article id="post-2026-01-14-github-daily-stock-analysis-intro" class="post-2026-01-14-github-daily-stock-analysis-intro post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2026/01/14/2026-01-14-github-daily-stock-analysis-intro/">2026/01/10 开源 1 周就 1.3K+ Star！让 AI 帮你盯盘, 不错过投资机会</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://blog.mzad.dpdns.org/2026/01/14/2026-01-14-github-daily-stock-analysis-intro/" data-id="cmkgl80vg000fxot8441mg2jc" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h1 id="开源-1-周就-1-3K-Star！让-AI-帮你盯盘-不错过投资机会"><a href="#开源-1-周就-1-3K-Star！让-AI-帮你盯盘-不错过投资机会" class="headerlink" title="开源 1 周就 1.3K+ Star！让 AI 帮你盯盘, 不错过投资机会"></a>开源 1 周就 1.3K+ Star！让 AI 帮你盯盘, 不错过投资机会</h1><p>昨天在社区里面, 看到一个叫帖子介绍一个开源项目 daily_stock_analysis 的项目, 作用就是让”AI 帮你盯盘”. 解决了广大群众忙于工作而错过盯盘, 而痛失几十w的问题.</p>
+<p>这项目才开源 1 周, Star 已经 1.3K+ 了.</p>
+<p><img src="/assets/images/2026/1/daily_stock_analysis_intro.png" alt="intro"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">开源地址：https://github.com/ZhuLinsen/daily_stock_analysis</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="核心功能"><a href="#核心功能" class="headerlink" title="核心功能"></a>核心功能</h2><ul>
+<li><strong>AI 决策仪表盘</strong></li>
+</ul>
+<p>相信不少人手里都有几只股票, 特别是最近大A异常火爆, 平时没时间天天盯盘的应该不在少数.</p>
+<p>它是一个基于 AI 大模型的 A 股自选股智能分析系统, 每日自动分析并推送决策仪表盘到企业微信, 飞书, Telegram 或邮箱.</p>
+<p>说白了, 就是给 AI 装上一双眼睛, 让它帮你盯着股市, 每天收盘后自动给你生成一份专业的分析报告.</p>
+<p><img src="/assets/images/2026/1/daily_stock_analysis_intro_dashboard.png" alt="dashboard"></p>
+<p>这个项目的核心逻辑其实就三步：</p>
+<p>看（See）：通过 AkShare, Tushare 等多数据源获取实时行情和新闻.</p>
+<p>想（Think）：把数据扔给 Gemini 等大模型, 让它分析技术面, 筹码分布, 舆情情报.</p>
+<p>推（Push）：生成决策仪表盘, 自动推送到你的企业微信, 飞书, Telegram 或邮箱.</p>
+<ul>
+<li><strong>买卖点位精准建议</strong></li>
+</ul>
+<p>AI 会给你一句话核心结论：买入&#x2F;观望&#x2F;卖出, 还要给你精确的买卖点位.</p>
+<p>比如：买入价, 止损价, 目标价, 三位一体, 明明白白.</p>
+<ul>
+<li><strong>交易理念内置</strong></li>
+</ul>
+<p>这个项目最牛的地方在于, 它内置了科学的交易理念.</p>
+<p>严禁追高：乖离率超过 5% 自动标记危险, AI 会直接告诉你别追.</p>
+<p>趋势交易：只有 MA5 &gt; MA10 &gt; MA20 多头排列才建议买入.</p>
+<p>检查清单：每项技术条件用 ✅⚠️❌ 标记, 一目了然.</p>
+<ul>
+<li><strong>大盘复盘功能</strong></li>
+</ul>
+<p>除了自选股分析, 它还能每天自动生成大盘复盘.</p>
+<p>主要指数涨跌, 市场概况, 板块表现, 北向资金流向, 应有尽有.</p>
+<p><img src="/assets/images/2026/1/daily_stock_analysis_intro_review.png" alt="review"></p>
+<ul>
+<li><strong>零成本纯白嫖</strong></li>
+</ul>
+<p>这个项目更吸引人的点在于——它可以是的不花钱.</p>
+<p>GitHub Actions 免费运行, 不用买服务器.</p>
+<p>每天工作日 18:00 自动执行, 你只需要打开手机就能看到分析报告.</p>
+<p><img src="/assets/images/2026/1/daily_stock_analysis_intro_run_workflow.png" alt="run workflow"></p>
+<p>Fork 一下仓库, 配置几个 API Key, 就完事了.</p>
+<p>剩下的 AI 分析, 数据抓取, 报告生成, 消息推送, 全部自动化.</p>
+<p>Google AI Studio 提供的免费额度, 个人使用完全够用.</p>
+<p>当然, 如果你想用 DeepSeek, 通义千问之类的国产大模型, 它也支持 OpenAI 兼容 API.</p>
+<p>数据源也灵活, AkShare（免费）, Tushare, Baostock, YFinance, 新闻搜索都能用 Tavily, SerpAPI. 就是哪个免费用哪个, 灵活度很高.</p>
+<p>推送渠道更不用说, 企业微信, 飞书, Telegram, 邮件, 想推哪推哪.</p>
+<p>甚至支持自定义 Webhook, 钉钉, Discord, Slack, Bark 都能接.</p>
+<h2 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h2><p>作者在项目的 README 上有详细的说明. 这里我简要说明一下</p>
+<h3 id="Github-Action"><a href="#Github-Action" class="headerlink" title="Github Action"></a>Github Action</h3><p>第一步：Fork 仓库</p>
+<p>点击右上角 Fork 按钮, 把项目 Fork 到你自己的 GitHub 账号下.</p>
+<p>第二步：配置 Secrets</p>
+<p>进入你 Fork 的仓库 → Settings → Secrets and variables → Actions → New repository secret.</p>
+<p>必填项就两个：</p>
+<p>GEMINI_API_KEY：Google AI Studio 获取免费 Key.</p>
+<p>STOCK_LIST：你的自选股代码, 比如 600519,300750,002594.</p>
+<p>通知渠道至少配一个, 比如企业微信的 Webhook URL.</p>
+<p>第三步：启用 Actions</p>
+<p>进入 Actions 标签, 点击 I understand my workflows, go ahead and enable them.</p>
+<p>第四步：手动测试</p>
+<p>Actions → 每日股票分析 → Run workflow → 选择模式 → Run workflow.</p>
+<p>这时候, 你就会在企业微信里收到第一份 AI 分析报告了.</p>
+<h3 id="也可以选择本地运行"><a href="#也可以选择本地运行" class="headerlink" title="也可以选择本地运行"></a>也可以选择本地运行</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># 克隆仓库</span><br><span class="line">git clone https://github.com/ZhuLinsen/daily_stock_analysis.git</span><br><span class="line">cd daily_stock_analysis</span><br><span class="line"></span><br><span class="line"># 安装依赖</span><br><span class="line">pip install -r requirements.txt</span><br><span class="line"></span><br><span class="line"># 配置环境变量</span><br><span class="line">cp .env.example .env</span><br><span class="line">vim .env  # 填入你的 API Key</span><br><span class="line"></span><br><span class="line"># 运行</span><br><span class="line">python main.py                    # 完整分析</span><br><span class="line">python main.py --market-review    # 仅大盘复盘</span><br><span class="line">python main.py --schedule         # 定时任务模式</span><br></pre></td></tr></table></figure>
+
+<h3 id="docker-方式"><a href="#docker-方式" class="headerlink" title="docker 方式"></a>docker 方式</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 配置环境变量</span><br><span class="line">cp .env.example .env</span><br><span class="line">vim .env</span><br><span class="line"></span><br><span class="line"># 一键启动</span><br><span class="line">docker-compose up -d</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>用的都是免费的 API 和 GitHub Actions, 真正的零成本纯白嫖.</p>
+<p>对于咱们这些平时要上班, 没时间天天盯盘的打工人来说, 确实有点东西.</p>
+<p>或者你们已经在用类似的工具了？评论区聊聊, 看看还有没有其他好东西.</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2026/01/14/2026-01-14-github-daily-stock-analysis-intro/">
+    <time datetime="2026-01-14T10:58:42.000Z" class="entry-date">
+        2026-01-14
+    </time>
+</a>
+    
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tailwind/" rel="tag">Tailwind</a></li></ul>
+
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-2026-01-10-Tailwind-crisis-followup" class="post-2026-01-10-Tailwind-crisis-followup post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2026/01/11/2026-01-10-Tailwind-crisis-followup/">2026/01/10 48小时狂揽百万赞助, Tailwind的生死劫后余生!</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://blog.mzad.dpdns.org/2026/01/11/2026-01-10-Tailwind-crisis-followup/" data-id="cmkgl80vg000dxot8f0vs832x" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h1 id="48小时狂揽百万赞助-Tailwind的生死劫后余生"><a href="#48小时狂揽百万赞助-Tailwind的生死劫后余生" class="headerlink" title="48小时狂揽百万赞助, Tailwind的生死劫后余生!"></a>48小时狂揽百万赞助, Tailwind的生死劫后余生!</h1><hr>
+<p><img src="/assets/images/2026/1/tailwwind_sponsor_cover_image.png" alt="tailwind__sponsor_cover_image"></p>
+<p>48小时, 在2026年1月的第一个周末成为了Tailwind Labs的救命稻草.</p>
+<p>就在前, 这家拥有80万GitHub Star的前端框架巨头刚刚宣布裁员75%的工程师团队, 创始人Adam Wathan公开承认营收暴跌80%, 运营资金仅能维持6个月.</p>
+<p>然而, 谁也没想到的是, 就在Adam披露危机后的48小时内, 科技圈上演了一场”集体救援行动”.</p>
+<h2 id="豪门的集体入场"><a href="#豪门的集体入场" class="headerlink" title="豪门的集体入场"></a>豪门的集体入场</h2><p>1月8日这一天, 注定要成为Tailwind商业上的一个转折点.</p>
+<p>Vercel CEO Guillermo Rauch在X平台上率先宣布: “Vercel将正式赞助tailwindcss.com, 这是毫无疑问的. 我们整个社区和行业都欠@adamwathan团队很多. Tailwind现在已经是最基础的网络基础设施了(它修复了CSS).”</p>
+<p>紧接着, Google AI Studio的产品主管Logan Kilpatrick宣布: “我很高兴地宣布我们(@GoogleAIStudio团队)现在成为@tailwindcss项目的赞助商, 很荣幸能够支持他们, 并找到更多方式共同帮助建设者生态系统.”</p>
+<p>AI代码生成平台Lovable的创始人Anton Osika更是直言: “Lovable上的每个应用都使用Tailwind, 我们欠他们很多. 我们现在正在赞助他们, 我真诚地鼓励其他创始人都这么做.”</p>
+<p>就在同一天, Gumroad, Supabase, Macroscope, Profound等公司纷纷宣布成为Tailwind的合作伙伴.</p>
+<p>创始人 Adam随后也在 X 平台上确认了这些信息, 并对一一做出感谢.</p>
+<p><img src="/assets/images/2026/1/tailwind_partner.png" alt="tailwind_partner"></p>
+<p><strong>这是一份令人惊讶的救援名单:</strong></p>
+<ul>
+<li><strong>Google AI Studio</strong> - 全球最大的AI公司之一</li>
+<li><strong>Vercel</strong> - 估值数十亿美元的部署平台</li>
+<li><strong>Lovable</strong> - 据称ARR已达2.5亿美元的AI建站平台</li>
+<li><strong>Supabase</strong> - 开源Firebase替代品, 早期Tailwind大客户</li>
+<li><strong>Gumroad</strong> - 创作者经济平台, Adam创业第一单收入来源</li>
+</ul>
+<p>Tailwind的合作伙伴级别赞助费用是每月5000美元, 年化为6万美元. 如果这7家公司都按此级别赞助, 单这一项就能带来42万美元的年收入.<br><img src="/assets/images/2026/1/tailwind_sponsor.png" alt="tailwind_sponsor"></p>
+<p>如果按1月8前公司年度赞助收入大约在100万美元左右. 这意味着, 48小时的集体救援, 可能直接将Tailwind的年化赞助收入提升了30%-40%.</p>
+<h2 id="迟到的正义-还是被迫的良心"><a href="#迟到的正义-还是被迫的良心" class="headerlink" title="迟到的正义, 还是被迫的良心?"></a>迟到的正义, 还是被迫的良心?</h2><p>但这场”救援行动”, 看似温暖, 背后确实更具体的现实.</p>
+<p>让我们看看时间线: Tailwind的文档流量从2023年初就开始下滑, 到2026年已经下降了40%. 在这整整三年时间里, 那些大量使用Tailwind的AI公司, 有谁站出来赞助过?</p>
+<p>Lovable这个AI建站平台, 每个生成的应用都用Tailwind, 据Hacker News用户估算, 其ARR已达2.5亿美元. 但在这次危机之前, 他们没有给Tailwind贡献过一分钱.</p>
+<p>Google的Gemini, OpenAI的ChatGPT, Anthropic的Claude, 这些AI工具每天都在生成数百万行Tailwind代码, 它们的训练数据直接来自Tailwind的公开文档. 但这些数十亿美元估值的AI公司, 没有想过给Tailwind分一杯羹.</p>
+<p><strong>这就像你种的树被别人砍了卖木材, 等树快死了, 他们才想起来给你浇点水.</strong></p>
+<p>更现实的是, 这场<strong>雪中送炭的</strong>“救援”的本质, 是科技巨头们可能意识到: Tailwind不能倒, 因为倒了可能会损害他们自己的利益.</p>
+<p>Vercel的CEO Guillermo Rauch说得很直白: “我已联系Adam, 探索如何使这成为更长期的承诺.” </p>
+<p>强调这不是慈善, 这是战略投资. Tailwind倒了, Vercel的生态系统会受损, Google的AI工具会失去最好的代码生成基础, Lovable的产品会出问题.</p>
+<p>他们支援Tailwind的背后, 是在拯救救自己盈利点.</p>
+<h2 id="AI时代的开源护城河"><a href="#AI时代的开源护城河" class="headerlink" title="AI时代的开源护城河"></a>AI时代的开源护城河</h2><p>Tailwind的这场危机, 撕开了AI时代开源经济的残酷真相.</p>
+<p><strong>以前的路径:</strong> 开源免费 → 文档引流 → 付费产品转化 → 持续开发</p>
+<p><strong>现在的路径:</strong> 开源免费 → AI抓取文档 → AI生成代码 → 用户直接使用 → 原创者零收益</p>
+<p>开发者再也不需要访问Tailwind的文档网站, 因为ChatGPT, Claude, Cursor会直接告诉他们该怎么写代码. 这意味着Tailwind的付费产品Tailwind UI的曝光渠道被切断了.</p>
+<p>这不仅仅是Tailwind的问题. 所有依赖”文档经济”的开源项目都面临同样的命运.</p>
+<p><strong>AI带走的不仅是流量, 还有整个”免费+增值”的商业逻辑.</strong></p>
+<h2 id="救援之后的疑问"><a href="#救援之后的疑问" class="headerlink" title="救援之后的疑问"></a>救援之后的疑问</h2><p>Adam在收到大量赞助后很快表态: “我们被大家的支持感动得不知所措, 但我想澄清, 我们不需要被拯救. 我们依然有一个不错的生意(虽然在走下坡路), 只是不再是一个伟大的生意了. 在我们现在的规模下, 我们还好, 我们很舒服.”</p>
+<p>他说, 在新的规模下运营, 预算减少, 但如果能找到解决方案当然好, 如果找不到, 作为一家小公司继续运营也是一个可行的路径.</p>
+<p>进一步的问题是: 这些赞助能撑多久? 如果文档流量继续下降, 如果AI工具继续进化, 这些科技公司会持续赞助吗? 还是说, 这只是一次性的”良心发现”?</p>
+<h2 id="更深的困境"><a href="#更深的困境" class="headerlink" title="更深的困境"></a>更深的困境</h2><p>Tailwind的救援, 更像是回归到 <strong>开源项目的生存依赖于大公司的赞助&#x2F;捐赈</strong>, 而不是自身可持续的商业模式.**</p>
+<p>以前, 开源项目或许可以通过自己的产品和服务获得收入. 现在, 这个渠道被AI切断了. 他们只能寄希望于那些使用他们技术的公司”主动”赞助.</p>
+<p>对于开源项目这是好还是坏呢?</p>
+<p><strong>开源运动的精神, 正在被AI时代的商业逻辑碾压.</strong></p>
+<h2 id="最后的思考"><a href="#最后的思考" class="headerlink" title="最后的思考"></a>最后的思考</h2><p>48小时的集体救援, 应该让Tailwind暂时渡过了难关. 但这可能不是胜利, 这是缓刑.</p>
+<p>对于整个开源社区来说, Tailwind的案例是一个警告: <strong>在AI时代, 你的代码可以被免费使用, 你的文档可以被免费训练, 但你的收入会被切断, 除非你足够幸运, 能够引起大公司的”同情”.</strong></p>
+<p>当GitHub Star数超过80万, NPM月下载量超过500万, 却养不起4个工程师的时候, 我们该问的不是”为什么Tailwind失败了”, 而是”整个开源模式在AI时代还能活下去吗?”</p>
+<p>Tailwind被救了, 但下一个Tailwind呢?</p>
+<hr>
+<blockquote>
+<p>48小时的百万赞助, 换来的是下一个6个月的喘息, 又或是葬礼? 对于开源社区来说, 这场救援行动的背后, 是整个”文档经济”模式在AI时代的集体崩塌. 当转化链路被切断, 所有依赖”免费+导流”的开源项目, 都该考虑新的出路了.</p>
+</blockquote>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2026/01/11/2026-01-10-Tailwind-crisis-followup/">
+    <time datetime="2026-01-11T10:58:42.000Z" class="entry-date">
+        2026-01-11
+    </time>
+</a>
+    
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tailwind/" rel="tag">Tailwind</a></li></ul>
+
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-2026-01-08-Tailwind-layoff-75-percent" class="post-2026-01-08-Tailwind-layoff-75-percent post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2026/01/10/2026-01-08-Tailwind-layoff-75-percent/">2026/01/10 营收暴跌80%大崩盘, Tailwind也扛不住了!</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://blog.mzad.dpdns.org/2026/01/10/2026-01-08-Tailwind-layoff-75-percent/" data-id="cmkgl80vg000cxot8ag5j5psm" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h1 id="营收暴跌80-大崩盘-Tailwind也扛不住了"><a href="#营收暴跌80-大崩盘-Tailwind也扛不住了" class="headerlink" title="营收暴跌80%大崩盘, Tailwind也扛不住了!"></a>营收暴跌80%大崩盘, Tailwind也扛不住了!</h1><h2 id=""><a href="#" class="headerlink" title=""></a><img src="/assets/images/2026/1/tailwind_layoff.png" alt="cover_picture"></h2><p>营收暴跌80%, 在2026年第一个月成为了Tailwind送给开源社区的新年礼物, 或者说, 一枚震撼弹. </p>
+<p>这可能是开源历史上最讽刺的一幕——当一款工具的使用率达到历史最高峰时, 它的商业命脉却被拦腰斩断. </p>
+<p>1月7日, Tailwind Labs创始人Adam Wathan在GitHub上对一个被关闭的PR进行回复时给出的原因是: 有更重要的事情要做,没时间处理不能帮助赚钱的事情.  该回复引起了社区的不满.<br><img src="/assets/images/2026/1/tailwind_adam_explain.png" alt="close_pr"></p>
+<p>随后 1月8日, Adam继续给出了更炸裂的原因: </p>
+<p><img src="/assets/images/2026/1/tailwind_pr_close_coments.png" alt="adam_explain"></p>
+<ul>
+<li><strong>营收暴跌80%</strong>, 从巅峰期的月入10万美元断崖式下跌</li>
+<li><strong>文档流量下降40%</strong>, 使用者访问文档站次数大幅减少</li>
+<li><strong>工程团队裁员75%</strong>, 4个工程师裁掉3个</li>
+<li><strong>运营资金还能坚持6个月</strong>, 这是Adam在个人podcast中给出的最后期限</li>
+</ul>
+<p>仅仅24小时后, 整个前端开发圈炸了.<br>更讽刺的对照是, Tailwind CSS的使用规模还在增长, GitHub Star数突破80万, NPM月下载量超过500万.  一切看起来都很美好, 除了钱. </p>
+<h2 id="越火越穷的开源"><a href="#越火越穷的开源" class="headerlink" title="越火越穷的开源"></a>越火越穷的开源</h2><p>Tailwind的商业模型其实很简单: 开源框架免费, 靠文档流量导流到付费产品Tailwind UI. </p>
+<p>这个模式在2022年效果拔群——年营收突破250万美元, 团队规模扩张到15人, Adam甚至写过《从副业到数百万美元生意》的爆款文章. </p>
+<p>但AI改变了游戏规则. </p>
+<p>当ChatGPT、Claude、Cursor这些AI工具能直接生成Tailwind代码时, 使用者不再需要反复查阅文档.  文档流量暴跌40%, 意味着付费转化的入口被切断了80%. </p>
+<p>这就像你开了一家免费图书馆, 靠卖咖啡赚钱.  突然有人发明了”意念图书馆”, 所有人都不来图书馆了——虽然书还是被疯狂借阅, 但咖啡一杯都卖不出去. </p>
+<h2 id="文档经济的末日来了"><a href="#文档经济的末日来了" class="headerlink" title="文档经济的末日来了"></a>文档经济的末日来了</h2><p>Tailwind的崩盘可能”文档经济”模式崩溃的信号. </p>
+<p>Vercel、Stripe、Auth0这些依赖开发者文档的公司, 同样面临流量断崖. 甚至有业内人士透露, 多个开发者工具公司的文档流量在2024-2025年间下降了30%-60%. </p>
+<p>更致命的是, AI带走流量的同时, 它还在从根本消除了”查阅-学习-购买”的传统转化路径. </p>
+<p>以前的开发者路径:遇到问题 → 查文档 → 看到付费产品 → 考虑购买<br>现在的开发者路径:遇到问题 → 问AI → 直接得到答案 → 继续写代码</p>
+<p>付费产品可能都无法进入开发者的视野, 潜在的有能力购买用户也会逐渐消失. </p>
+<h2 id="开发者的真实困境"><a href="#开发者的真实困境" class="headerlink" title="开发者的真实困境"></a>开发者的真实困境</h2><p>让我们换个角度, 看看那些被裁掉的工程师. </p>
+<p>他们在GitHub讨论区留言:”为Tailwind贡献了3年代码, 收到通知时还在修bug. “</p>
+<p>更残酷的是, Tailwind采用”终身许可制”卖UI组件库——用户付一次钱, 永久使用. 这种模式对用户友好, 但对公司来说是慢性自杀. </p>
+<p>没有订阅收入, 没有持续性现金流, 一旦新用户增长放缓, 资金链就断裂. </p>
+<p>有开发者在Reddit评论:”我花49美元买了Tailwind UI, 用了3年, 现在才知道我的’一次付费’可能是压垮他们的最后一根稻草. “</p>
+<h2 id="AI时代-开源如何活下去？"><a href="#AI时代-开源如何活下去？" class="headerlink" title="AI时代, 开源如何活下去？"></a>AI时代, 开源如何活下去？</h2><p>Tailwind的困境撕开了AI时代的残酷真相:</p>
+<p>**第一, 流量不再是护城河. ** 当AI可以直接生成代码, “文档 → 转化”的商业模式被彻底瓦解. </p>
+<p>**第二, 免费不是好策略. ** Tailwind开源免费, 培养了百万用户, 但这些用户在关键时刻无法转化为付费客户. </p>
+<p>**第三, 技术成功≠商业成功. ** 全球最受欢迎的CSS框架, 却养不起4个工程师, 这是开源的悲哀. </p>
+<p>Adam在公告中写道:”我们正在探索新的商业模式, 包括订阅制、企业版、AI集成方案. “</p>
+<p>但时间不多了. 6个月, 要么找到新出路, 要么成为AI时代的第一个牺牲品. </p>
+<h2 id="最后的问题"><a href="#最后的问题" class="headerlink" title="最后的问题"></a>最后的问题</h2><p>对于类似Tailwind的开源项目来说, AI不是威胁, 而是更具体的现实冲击. </p>
+<p>当免费的午餐被AI端走, 当文档的护城河被填平, 当开发者的行为被彻底改变后, 下一个倒下的又会是谁？</p>
+<p>或许, 真正的混乱才刚刚开始. </p>
+<hr>
+<blockquote>
+<p>一夜之间, Tailwind从开源标杆变成了商业反面教材. 但比裁员更可怕的, 是整个”文档盈利模式”的崩塌. 当AI改变了开发者的行为, 所有依赖”免费+导流”模式的商业, 都该醒醒了. </p>
+</blockquote>
+<hr>
+<p><strong>参考阅读</strong>:</p>
+<ul>
+<li>[Github PR comments for “add llms. txt endpoint for LLM-optimized documentation”] (<a target="_blank" rel="noopener" href="https://github/">https://github</a>. com&#x2F;tailwindlabs&#x2F;tailwindcss. com&#x2F;pull&#x2F;2388#issuecomment-3717222957)</li>
+<li>[We had six months left](<a target="_blank" rel="noopener" href="https://adams-morning-walk/">https://adams-morning-walk</a>. transistor. fm&#x2F;episodes&#x2F;we-had-six-months-left)</li>
+<li>[受AI衝擊, Tailwind CSS工程團隊裁撤75%](<a target="_blank" rel="noopener" href="https://www/">https://www</a>. ithome. com. tw&#x2F;news&#x2F;173261)</li>
+</ul>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2026/01/10/2026-01-08-Tailwind-layoff-75-percent/">
+    <time datetime="2026-01-10T10:58:42.000Z" class="entry-date">
+        2026-01-10
+    </time>
+</a>
+    
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tailwind/" rel="tag">Tailwind</a></li></ul>
+
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-2022-02-22-use-podman-to-replace-docker-engine" class="post-2022-02-22-use-podman-to-replace-docker-engine post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2025/06/10/2022-02-22-use-podman-to-replace-docker-engine/">2022/02/22 use podman to replace docker engine</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://blog.mzad.dpdns.org/2025/06/10/2022-02-22-use-podman-to-replace-docker-engine/" data-id="cmkgl80ve0003xot8fpstbmgn" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>使用docker需要基于root账户运行历来都是个痛点, 无论是命令行的麻烦(<em>虽然可以用alias</em> 来消除sudo 的使用), 还是数据的owner方面, 包括导出的tar, 以及挂载的本地文件, 都会出现只有root能访问的问题, 然而最近看到一篇文章 <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_48289488/article/details/121905018">Docker 大势已去，Podman 即将崛起</a>, 可能是解决这个问题的方案, 然而一直没有动力, 直到最近升级了docker engine, 导致本机一致无法运行 mysql 5.6 镜像的container, 就干脆卸载了docker 和 docker-compose, 转投podman 和 podman-compose.</p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p><img src="/assets/images/2021/2/podman.svg" alt="podman"><br><a target="_blank" rel="noopener" href="https://podman.io/">Podman官网: https://podman.io</a></p>
+<p>官方提供了各种平台的<a target="_blank" rel="noopener" href="https://podman.io/getting-started/installation">安装方式</a>, 例如 Arch Linux:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S podman podman-compose podman-dnsname</span><br></pre></td></tr></table></figure>
+<p>其中<code>podman</code>是主程序, 后面的 <code>podman-compose</code> 和<code>podman-dnsname</code> 是替换<em>docker-compose</em> 用的 </p>
+<h1 id="配置以及支持包"><a href="#配置以及支持包" class="headerlink" title="配置以及支持包"></a>配置以及支持包</h1><p>重点是在账户下运行podman, 因此两个额外的支持包需要安装:<code>slirp4netns</code>, <code>fuse-overlayfs</code> , 分别是支持用户空间的网络和文件系统.</p>
+<p>另一个必须的包是 <code>shadow-utils</code>, 在Arch Linux中是 <code>shadow</code>, 安装完成后, 修改文件 (如果没有可以用root用户创建)</p>
+<ul>
+<li><p>&#x2F;etc&#x2F;subuid</p>
+<pre><code>  &lt;username&gt;:10000:65536
+</code></pre>
+</li>
+<li><p>&#x2F;etc&#x2F;subgid</p>
+<pre><code>  &lt;username&gt;:10000:65536
+</code></pre>
+</li>
+</ul>
+<p>然后使用命令让podman应用上面的修改</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">podman system migrate</span><br></pre></td></tr></table></figure>
+
+<p>默认情况下用户空间的podman不能绑定本机小于1024的端口号, 如果有特殊需要, 例如443, 则可以修改kernel的参数, 对Arch linux, 创建文件 <code>/etc/sysctl.d/podman.conf</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net.ipv4.ip_unprivileged_port_start=443</span><br></pre></td></tr></table></figure>
+
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><ul>
+<li>支持docker hub repo, 在 <code>/etc/containers/registries.d/somefile.conf</code> 或者 <code>$HOME/.config/containers/registries.conf</code>中增加配置:</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unqualified-search-registries = [&quot;docker.io&quot;]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>使用docker-compose.yml 无法解析service 名称</p>
+<p>  这个通过安装podman-dnsname解决</p>
+</li>
+<li><p>如果本机配置了代理, proxy相关的环境变量(http_proxy, https_proxy…)会默认增加到container里面, 如果这不是你想要的, 可以通过修改 <code>/etc/containers/</code> 或 <code> $HOME/.config/containers/</code> 中的containers.conf , 就可以解决这个</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http_proxy = false</span><br></pre></td></tr></table></figure>
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2025/06/10/2022-02-22-use-podman-to-replace-docker-engine/">
+    <time datetime="2025-06-10T06:30:36.000Z" class="entry-date">
+        2025-06-10
+    </time>
+</a>
+    
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/podman/" rel="tag">podman</a></li></ul>
+
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-2022-02-15-odoo-integration-webauthn" class="post-2022-02-15-odoo-integration-webauthn post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2025/06/06/2022-02-15-odoo-integration-webauthn/">2022/02/15 odoo integration webauthn</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://blog.mzad.dpdns.org/2025/06/06/2022-02-15-odoo-integration-webauthn/" data-id="cmkgl80vd0001xot8fsiy8bhk" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近由于业务需要, 要求在odoo中支持FIDO2的认证方式, 即在用户账户绑定FIDO2兼容的<strong>Authenticator</strong>(通常为USB key), 需要用户在正常的帐号密码登录之后, 使用USB key做二次身份确认. </p>
+<h1 id="调查研究"><a href="#调查研究" class="headerlink" title="调查研究"></a>调查研究</h1><p>当前项目使用的odoo版本是<a target="_blank" rel="noopener" href="https://nightly.odoo.com/14.0/nightly/">14.0 community 版本</a>, 而OCA 的<a target="_blank" rel="noopener" href="https://github.com/OCA/server-auth/tree/14.0">14.0 版本的server-auth 项目</a>并不包含FIDO2 或者U2F的认证支持, 不过在 <a target="_blank" rel="noopener" href="https://github.com/OCA/server-auth/tree/12.0">12.0 版本</a> 中发现有 <a target="_blank" rel="noopener" href="https://github.com/OCA/server-auth/tree/12.0/auth_u2f">auth_u2f 插件</a> 实现, 所以决定从改造 12.0 版本的<code>auth_u2f</code> 开始, 最终目标是<strong>FIDO2</strong> 与 <strong>odoo14</strong> 的集成</p>
+<h1 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h1><p>整体的改造过程如下:</p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>由于FIDO2认证需要网站工作在<strong>TLS&#x2F;HTTPS</strong> 下, 所以本地测试需要准备:</p>
+<ol>
+<li><p>通过openssl生成网站需要的证书和私钥:<code>certificate.pem</code> 以及 <code>key.pem</code>, 方法请<em>自行<del>百</del>(goo)<del>度</del>(gle)</em> , 在nginx配置中会用到  </p>
+</li>
+<li><p>搭建一个nginx反向代理, 关键的配置如下, 其中的 <code>proxy_set_header X-Forwarded-HTTPS on</code> 是解决odoo redirect 操作导致浏览器使用回HTTP请求的问题</p>
+ <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    <span class="attribute">listen</span> <span class="number">443</span> ssl;</span><br><span class="line">    <span class="attribute">proxy_set_header</span> X-Forwarded-Proto <span class="variable">$scheme</span>;</span><br><span class="line">    <span class="attribute">ssl_certificate</span> /usr/local/nginx/cert/certificate.pem; <span class="comment">#cert</span></span><br><span class="line">    <span class="attribute">ssl_certificate_key</span> /usr/local/nginx/cert/key.pem; <span class="comment">#key</span></span><br><span class="line">    <span class="attribute">ssl_session_timeout</span>  <span class="number">5m</span>;    <span class="comment">#time out</span></span><br><span class="line">    <span class="attribute">ssl_ciphers</span> ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;    <span class="comment">#supported algorithm</span></span><br><span class="line">    <span class="attribute">ssl_protocols</span> TLSv1 TLSv1.<span class="number">1</span> TLSv1.<span class="number">2</span>;    <span class="comment">#supported tls version</span></span><br><span class="line">    <span class="attribute">ssl_prefer_server_ciphers</span> <span class="literal">on</span>;   <span class="comment">#use server prefered</span></span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">        <span class="section">location</span> / &#123;</span><br><span class="line">        <span class="attribute">proxy_pass</span> http://localhost:8069;</span><br><span class="line">        <span class="attribute">proxy_set_header</span> X-Forwarded-HTTPS <span class="literal">on</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+<li><p>在odoo的系统参数中配置<code>web.base.url</code> 以及 <code>web.base.url.freeze</code></p>
+<p> web.base.url -&gt; <a target="_blank" rel="noopener" href="https://localhost/">https://localhost</a><br> web.base.url.freeze -&gt; True</p>
+</li>
+</ol>
+<p>完成之后可以测试新的https . 接下来就可以开始改造认证部分</p>
+<h2 id="auth-u2f-odoo14"><a href="#auth-u2f-odoo14" class="headerlink" title="auth_u2f -&gt; odoo14"></a>auth_u2f -&gt; odoo14</h2><p>这部分工作主要集中在 auth_u2f 到odoo 14  </p>
+<ol>
+<li>下载auth_u2f插件到本地的插件目录  </li>
+<li>按照插件的说明安装依赖包 <code>pip install python-u2flib-server</code>  </li>
+<li>去掉方法上不支持的装饰器 <code>@api.multi</code>  </li>
+<li>按照标准插件安装方式安装插件</li>
+</ol>
+<p>不出其他意外的话, auth_u2f 应该可以在系统中运行起来, 唯一遇到的一个问题是, 给当前用户新绑定usb key的时候, 会导致当前session出现登录失败的情况, 可能导致设备绑定出现问题, 修改方式也很简单, 修改<code>controller</code> ,如果发现用户已经登录, 不强制验证密钥</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@http.route(<span class="params"><span class="string">&#x27;/web/u2f/login&#x27;</span>, <span class="built_in">type</span>=<span class="string">&#x27;http&#x27;</span>, auth=<span class="string">&#x27;none&#x27;</span>, sitemap=<span class="literal">False</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">u2f_login</span>(<span class="params">self, u2f_token_response=<span class="literal">None</span>, redirect=<span class="literal">None</span>, **kw</span>):</span><br><span class="line">    user = request.env[<span class="string">&#x27;res.users&#x27;</span>].browse(request.session.uid)</span><br><span class="line">    <span class="keyword">if</span> user:</span><br><span class="line">        <span class="keyword">return</span> http.redirect_with_hash(<span class="variable language_">self</span>._login_redirect(</span><br><span class="line">            user.<span class="built_in">id</span>, redirect=redirect))   </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>测试后发现在 Firefox中能工作正常, 不过在chrome 中发现js错误, 由<strong>u2f-api.js</strong> 代码引起, 报<code>extension: kmendfapggjehodndflmmgagdbamhnfd</code> 不存在, 这个扩展应该是chrome 内置的扩展, 调查后发现应该和chrome放弃U2F支持有关 <a target="_blank" rel="noopener" href="https://developer.chrome.com/blog/deps-rems-95/#deprecate-u2f-api-cryptotoken">Deprecate U2F API (Cryptotoken)</a>, sighhhh! 还是Firefox耿直,所以接下来势必要转战 FIDO2  </p>
+<h2 id="FIDO2-in-odoo-14"><a href="#FIDO2-in-odoo-14" class="headerlink" title="FIDO2 in odoo 14"></a>FIDO2 in odoo 14</h2><p>和U2F的认证方式很类似, 包含注册部分</p>
+<p><img src="/assets/images/2022/2/webauthn_reg.png" alt="webauthn_reg">  </p>
+<p>和认证部分</p>
+<p><img src="/assets/images/2022/2/webauthn_auth.png" alt="webauthn_auth">  </p>
+<p>改造步骤如下:</p>
+<ol>
+<li><p>替换对应的后端和前端U2F支持库到FIDO2的支持库, 这里选用的是 <a target="_blank" rel="noopener" href="https://github.com/duo-labs/py_webauthn">py_webauthn</a> (server) 以及 <a target="_blank" rel="noopener" href="https://github.com/MasterKale/SimpleWebAuthn">SimpleWebAuthn</a> (client) , 安装方式请参考对应项目文档.  </p>
+</li>
+<li><p>后端  </p>
+<ol>
+<li>device的模型中增加 <code>credential</code> (可选), <code>credential_id</code> , 以及 <code>credential_pub_key</code> 字段</li>
+<li>在设备注册response verify通过后, 从对应的verify_registration_response 中解析出<code>credential_id</code> 和 <code>credential_pub_key</code> 并保存到对应的device record中</li>
+<li>在登录时从device record中拿到creddential_id, 作为 allow_credentials 放到AuthenticationOption中</li>
+<li>验证时从device记录中拿<code>credential_pub_key</code>做验证</li>
+</ol>
+</li>
+<li><p>前端的改动就比较简单, 替换auth_u2f.js 和auth_uf_frontend.js中对应的u2f-api的register 和 sign 方法为SimpleWebAuthn的startRegistration 和 startAuthentication即可</p>
+</li>
+</ol>
+<p>至此chrome 和 firefox都可以支持</p>
+<h1 id="相关网站连接"><a href="#相关网站连接" class="headerlink" title="相关网站连接"></a>相关网站连接</h1><p>Some useful links</p>
+<ul>
+<li><strong>awesome-webauthn</strong>: <a target="_blank" rel="noopener" href="https://github.com/herrjemand/awesome-webauthn">https://github.com/herrjemand/awesome-webauthn</a> , 包含了很多关于WebAuthn的资源连接</li>
+<li><strong>py_webauthn</strong>: <a target="_blank" rel="noopener" href="https://github.com/duo-labs/py_webauthn">https://github.com/duo-labs/py_webauthn</a> 本文最终使用的 <strong>webauthn server</strong> 库</li>
+<li><strong>SimpleWebAuthn</strong>: <a target="_blank" rel="noopener" href="https://github.com/MasterKale/SimpleWebAuthn">https://github.com/MasterKale/SimpleWebAuthn</a> 本文最终使用的 <strong>webauthn client</strong> 库</li>
+<li><strong>Auth0</strong>: <a target="_blank" rel="noopener" href="https://webauthn.me/">https://webauthn.me/</a> Demo网站, 可以直观了解FIDO2的认证流程</li>
+<li><strong>谈谈WebAuthn</strong>: <a target="_blank" rel="noopener" href="https://flyhigher.top/develop/2160.html">https://flyhigher.top/develop/2160.html</a></li>
+</ul>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2025/06/06/2022-02-15-odoo-integration-webauthn/">
+    <time datetime="2025-06-06T08:19:42.000Z" class="entry-date">
+        2025-06-06
+    </time>
+</a>
+    
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/odoo/" rel="tag">odoo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webauthn/" rel="tag">webauthn</a></li></ul>
+
+    </footer>
+</article>
+
+
+
+
+
+
+  
+  
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2026/01/14/2026-01-14-github-daily-stock-analysis-intro/">2026/01/10 开源 1 周就 1.3K+ Star！让 AI 帮你盯盘, 不错过投资机会</a>
+          </li>
+        
+          <li>
+            <a href="/2026/01/11/2026-01-10-Tailwind-crisis-followup/">2026/01/10 48小时狂揽百万赞助, Tailwind的生死劫后余生!</a>
+          </li>
+        
+          <li>
+            <a href="/2026/01/10/2026-01-08-Tailwind-layoff-75-percent/">2026/01/10 营收暴跌80%大崩盘, Tailwind也扛不住了!</a>
+          </li>
+        
+          <li>
+            <a href="/2025/06/10/2022-02-22-use-podman-to-replace-docker-engine/">2022/02/22 use podman to replace docker engine</a>
+          </li>
+        
+          <li>
+            <a href="/2025/06/06/2022-02-15-odoo-integration-webauthn/">2022/02/15 odoo integration webauthn</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tailwind/" rel="tag">Tailwind</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/odoo/" rel="tag">odoo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/podman/" rel="tag">podman</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webauthn/" rel="tag">webauthn</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-content tagcloud">
+      <a href="/tags/Tailwind/" style="font-size: 20px;">Tailwind</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/odoo/" style="font-size: 10px;">odoo</a> <a href="/tags/podman/" style="font-size: 10px;">podman</a> <a href="/tags/webauthn/" style="font-size: 10px;">webauthn</a>
+    </div>
+  </aside>
+
+  
 </div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2026 Martin Zhang
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/js/share.js'];</script>
 
-	<div id="content">
-		<div id="index">
-	
-	<div class="index-li">
-		<a href="/2026/01/14/2026-01-14-github-daily-stock-analysis-intro/">
-			<h2 class="index-title">
-				2026-01-14-github-daily-stock-analysis-intro
-			</h2>
-			<div class="index-brief">
-				开源 1 周就 1.3K+ Star！让 AI 帮你盯盘, 不错过投资机会昨天在社区里面, 看到一个叫帖子介绍一个开源项目 daily_stock_analysis 的项目, 作用就是让”AI 帮你盯盘”. 解决了广大群众忙于工作而错过盯盘, 而痛失几十w的问题.
-这项目才开源 1 周, Star 已经 1.3K+ 了.
+<script src="/js/jquery-3.3.1.min.js"></script>
 
-开源地址：https://github.com/ZhuLinsen/dai ...
-			</div>
-		</a>
-		<div class="article-meta">
-			<span>2026-01-14</span>
-			  
-		</div>
-	</div>
-	
-	<div class="index-li">
-		<a href="/2026/01/11/2026-01-10-Tailwind-crisis-followup/">
-			<h2 class="index-title">
-				2026-01-10-Tailwind-crisis-followup
-			</h2>
-			<div class="index-brief">
-				48小时狂揽百万赞助, Tailwind的生死劫后余生!
 
-48小时, 在2026年1月的第一个周末成为了Tailwind Labs的救命稻草.
-就在前, 这家拥有80万GitHub Star的前端框架巨头刚刚宣布裁员75%的工程师团队, 创始人Adam Wathan公开承认营收暴跌80%, 运营资金仅能维持6个月.
-然而, 谁也没想到的是, 就在Adam披露危机后的48小时内, 科技圈上演了一场 ...
-			</div>
-		</a>
-		<div class="article-meta">
-			<span>2026-01-11</span>
-			  
-		</div>
-	</div>
-	
-	<div class="index-li">
-		<a href="/2026/01/10/2026-01-08-Tailwind-layoff-75-percent/">
-			<h2 class="index-title">
-				2026/01/10 营收暴跌80%大崩盘, Tailwind也扛不住了!
-			</h2>
-			<div class="index-brief">
-				营收暴跌80%大崩盘, Tailwind也扛不住了!营收暴跌80%, 在2026年第一个月成为了Tailwind送给开源社区的新年礼物, 或者说, 一枚震撼弹. 
-这可能是开源历史上最讽刺的一幕——当一款工具的使用率达到历史最高峰时, 它的商业命脉却被拦腰斩断. 
-1月7日, Tailwind Labs创始人Adam Wathan在GitHub上对一个被关闭的PR进行回复时给出的原因是: 有更重要 ...
-			</div>
-		</a>
-		<div class="article-meta">
-			<span>2026-01-10</span>
-			  
-		</div>
-	</div>
-	
-	<div class="index-li">
-		<a href="/2025/06/10/2022-02-22-use-podman-to-replace-docker-engine/">
-			<h2 class="index-title">
-				2022/02/22 use podman to replace docker engine
-			</h2>
-			<div class="index-brief">
-				背景使用docker需要基于root账户运行历来都是个痛点, 无论是命令行的麻烦(虽然可以用alias 来消除sudo 的使用), 还是数据的owner方面, 包括导出的tar, 以及挂载的本地文件, 都会出现只有root能访问的问题, 然而最近看到一篇文章 Docker 大势已去，Podman 即将崛起, 可能是解决这个问题的方案, 然而一直没有动力, 直到最近升级了docker engine, ...
-			</div>
-		</a>
-		<div class="article-meta">
-			<span>2025-06-10</span>
-			  
-		</div>
-	</div>
-	
-	<div class="index-li">
-		<a href="/2025/06/06/2022-02-15-odoo-integration-webauthn/">
-			<h2 class="index-title">
-				2022/02/15 odoo integration webauthn
-			</h2>
-			<div class="index-brief">
-				背景最近由于业务需要, 要求在odoo中支持FIDO2的认证方式, 即在用户账户绑定FIDO2兼容的Authenticator(通常为USB key), 需要用户在正常的帐号密码登录之后, 使用USB key做二次身份确认. 
-调查研究当前项目使用的odoo版本是14.0 community 版本, 而OCA 的14.0 版本的server-auth 项目并不包含FIDO2 或者U2F的认证支持, ...
-			</div>
-		</a>
-		<div class="article-meta">
-			<span>2025-06-06</span>
-			  
-		</div>
-	</div>
-	
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
 
-	<div id="index-paginator">
-		
-	</div>
-</div>
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
 
-	</div>
 
-	<div id="footer">
-	<div>
-		
-			
-				©2024<span>-</span><span>2026
-			
-			
-			</span>
-			<a href="">
-				Martin Zhang
-			</a>
-		
-		
-			<span id="busuanzi_container_site_pv">
-				Views
-				<span id="vercount_value_page_pv"></span>
-			</span>
-			<span id="busuanzi_container_site_uv">
-				Visitors
-				<span id="vercount_value_site_pv"></span>
-			</span>
-		
-	</div>
-	 <div> Theme <a href="https://github.com/Exisi/hexo-theme-node-tree"	target="_blank">Node-Tree</a> Powered by <a href="https://hexo.io" target="_blank">Hexo</a> </div> 
-</div>
-	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 
-<script async>
-    const topTopBtn = document.querySelector("#totop-toggle");
-	topTopBtn.addEventListener("click", () => {
-		window.scrollTo({ top: 0, behavior: "smooth" });
-	});
-</script>
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
 </body>
 </html>
